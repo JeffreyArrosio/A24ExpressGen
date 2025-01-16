@@ -2,20 +2,22 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon')
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bicicletasAPIRouter = require('./routes/api/bicicletas');
 var app = express();
+app.use(express.json());
 
+//favicon
+var favicon = require('serve-favicon')
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 
 //Rutas
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-//favicon
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.use('/api/bicicletas', bicicletasAPIRouter); 
 
 // Configuraciones
 app.set('views', path.join(__dirname, 'views'));
