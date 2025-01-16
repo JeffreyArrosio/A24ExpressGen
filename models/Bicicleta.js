@@ -18,7 +18,8 @@ Bicicleta.add(a);
 Bicicleta.add(b);
 
 Bicicleta.removeById = function (id) {
-    this.allBicis.splice(id, 1)
+    let index = this.allBicis.findIndex(e => e.id == id)
+    this.allBicis.splice(index, 1)
 }
 
 Bicicleta.put = function (id, color, modelo, latitud, longitud) {
