@@ -10,6 +10,7 @@ var app = express();
 var swaggerJsdoc = require("swagger-jsdoc");
 var swaggerUi = require("swagger-ui-express");
 app.use(express.json());
+app.use(cors())
 
 
 //favicon
@@ -34,7 +35,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors())
 
 
 const options = {
